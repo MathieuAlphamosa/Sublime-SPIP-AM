@@ -31,3 +31,5 @@ Simplification des snippets SPIP.
 1 - Ce package est fourni à titre d'exemple pour vous servir de base à la construction de votre propre package.
 
 2 - Les filtres `|image_optimise` et `|image_webp` sont des filtres utilisées en interne ici à Alphamosa. Il vous faudra les supprimer des snipppets.
+
+![Capture d’écran 2021-02-10 à 15 41 52](https://user-images.githubusercontent.com/1774437/107524814-81277a00-6bb6-11eb-813f-81bb1e280103.png)
