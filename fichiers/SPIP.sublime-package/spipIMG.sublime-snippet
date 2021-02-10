@@ -1,0 +1,8 @@
+<snippet>
+	<content>
+<![CDATA[
+[<img src="(#LOGO_${1:ARTICLE}|image_passe_partout{$2,$3}|image_recadre{$2,$3}|image_optimise|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+]]></content>
+	<tabTrigger>image</tabTrigger>
+	<description>code classique IMG SPIP</description>
+</snippet>

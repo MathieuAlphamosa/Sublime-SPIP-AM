@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+<BOUCLE_$1(${2:ARTICLES}){$3}{${4:par num titre, titre}}>
+$0</BOUCLE_$1>
+]]></content>
+	<tabTrigger>boucle</tabTrigger>
+	<description>Boucle SIMPLE</description>
+</snippet>

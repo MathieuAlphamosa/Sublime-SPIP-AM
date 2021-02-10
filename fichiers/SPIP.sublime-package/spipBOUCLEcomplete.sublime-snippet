@@ -1,0 +1,14 @@
+<snippet>
+	<content>
+<![CDATA[
+<B_$1>
+<BOUCLE_$1(${2:ARTICLES}){$3}{${4:par num titre, titre}}>
+	#TITRE
+	#TEXTE
+</BOUCLE_$1>
+</B_$1>
+<//B_$1>
+]]></content>
+	<tabTrigger>bouclec</tabTrigger>
+	<description>Boucle COMPLETE</description>
+</snippet>

@@ -1,0 +1,89 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: HTML (SPIP)
+file_extensions:
+  - html
+scope: text.html.spip
+
+contexts:
+  main:
+    - match: ""
+      push: "Packages/HTML/HTML.sublime-syntax"
+      with_prototype:
+        # commentaires
+        - match: '\s*\[\(#REM\)'
+          push:
+            - meta_scope: comment.text.html
+            - match: '\]\s*'
+              pop: true
+        # multi
+        - match: '<multi>'
+          push:
+            - meta_scope: texte
+            - match: '<\/multi>'
+              pop: true
+        # texte traduit
+        - match: '<:'
+          push:
+            - meta_scope: texte
+            - match: ':>'
+              pop: true
+        # boucle
+        - match: '<BOUCLE_([a-z_])+\(([a-zA-Z0-9_]+)\)'
+          captures:
+            2: boucle.type
+          push:
+            - meta_scope: boucle
+            # boucle : parametre
+            - match: '{'
+              push:
+              - meta_scope: boucle.parametre
+              - match: '}'
+                pop: true
+            - match: '>'
+              pop: true
+        # boucle fin
+        - match: '<\/BOUCLE_([a-z_])+'
+          push:
+            - meta_scope: boucle
+            - match: '>'
+              pop: true
+        # préBoucle, postBoucle et Boucle alternative
+        - match: '\<(\/)*B(.)+\>'
+          scope: boucle
+        # inclure
+        - match: '<INCLURE{(.*)} \/>'
+          scope: inclure
+          captures:
+            1: inclure.parametre
+        # balise
+        - match: '\(#(_[a-z]+:)?[A-Z_]+'
+          push:
+            - meta_scope: balise
+            # balise : filtres
+            - match: '\|oui'
+              scope: filtre.oui
+            - match: '\|non'
+              scope: filtre.non
+            - match: '|[a-zA-Z0-9_]+'
+              scope: filtre
+            # balise : parametre
+            - match: '{'
+              push:
+              - meta_scope: filtre.parametre
+              - match: '}'
+                pop: true
+            - match: '\)'
+              pop: true
+        # balise isolee
+        - match: '#[A-Z_]+({(.*)})?'
+          captures:
+            1: filtre.parametre
+          scope: balise
+        # crochet (faute de mieux)
+        - match: '\['
+          scope: balise.crochet
+        # crochet fin (faute de mieux)
+        - match: '\]'
+          scope: balise.crochet

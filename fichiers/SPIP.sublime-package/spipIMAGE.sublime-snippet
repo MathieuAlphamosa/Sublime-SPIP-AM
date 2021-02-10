@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+[<picture>
+	#SET{image_format,#$1|fichier|pathinfo|table_valeur{extension}}
+	[(#GET{image_format}|=={jpg}|oui) #SET{image_format,jpeg}]
+	[<source media="(max-width: 575px)" srcset="(#$1|image_$2{575${6:,xxx,'focus-center'}}|image_webp|extraire_attribut{src}), [(#$1|image_$2{805${7:,xxx,'focus-center'}}|image_webp|extraire_attribut{src}) 1.4x]" type="image/webp">]
+	[<source srcset="(#$1|image_$2{$3,$4$5}|image_webp|extraire_attribut{src})[, (#$1|image_$2{$3,$4$5}|image_webp|extraire_attribut{src}) 1.4x]" type="image/webp">]
+	[<source media="(max-width: 575px)" srcset="(#$1|image_$2{575$6}|image_optimise|extraire_attribut{src}), [(#$1|image_$2{805$7}|image_optimise|extraire_attribut{src}) 1.4x]" type="image/#GET{image_format}">]
+	[<source srcset="(#$1|image_$2{$3,$4$5}|image_optimise|extraire_attribut{src})[, (#$1|image_$2{$3,$4$5}|image_optimise|extraire_attribut{src}) 1.4x]" type="image/#GET{image_format}">]
+	(#${1:FICHIER}
+	|image_${2:recadre_focus}{${3:600},${4:600}${5:,'focus-center'}}
+	|image_optimise
+	|inserer_attribut{class,img-fluid}${8:
+	|inserer_attribut{role,presentation\}}
+	|inserer_attribut{alt,[(#TITRE|attribut_html)]}${9:
+	|inserer_attribut{loading,lazy\}}${10:
+	|inserer_attribut{importance,high\}})
+</picture>]
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>image</tabTrigger>
+	<description>Syntaxe complete picture SPIP</description>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.html</scope> -->
+</snippet>

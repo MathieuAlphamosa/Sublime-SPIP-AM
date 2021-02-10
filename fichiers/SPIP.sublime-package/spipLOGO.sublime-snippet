@@ -1,0 +1,8 @@
+<snippet>
+	<content>
+<![CDATA[
+[(#LOGO_${1:ARTICLE}|image_passe_partout{$2,$3}|image_recadre{$2,$3}|extraire_attribut{src})]
+]]></content>
+	<tabTrigger>logo</tabTrigger>
+	<description>code classique logo SPIP</description>
+</snippet>
