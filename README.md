@@ -1,6 +1,6 @@
 # Pourquoi ?
 
-Le [plugin de phenix-factory](https://github.com/phenix-factory/Sublime-SPIP) m'a bien dépanné pendant des années mais j'avais besoin de quelque chose de moins intrusif, à jour pour Sublime Text 3/4, et avec une colorisation basé sur Monokai.
+Le [plugin de phenix-factory](https://github.com/phenix-factory/Sublime-SPIP) m'a bien dépanné pendant des années mais j'avais besoin de quelque chose de moins intrusif, à jour pour Sublime Text 3/4, et avec une colorisation basée sur Monokai.
 
 
 # Installation
