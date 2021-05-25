@@ -53,10 +53,11 @@ contexts:
         - match: '\<(\/)*B(.)+\>'
           scope: boucle
         # inclure
-        - match: '<INCLURE{(.*)} \/>'
-          scope: inclure
-          captures:
-            1: inclure.parametre
+        - match: '<INCLURE{'
+          push:
+            - meta_scope: inclure.parametre
+            - match: ' \/>'
+              pop: true
         # balise
         - match: '\(#(_[a-z]+:)?[A-Z_]+'
           push:
