@@ -21,6 +21,12 @@ contexts:
         - match: '<multi>'
           push:
             - meta_scope: texte
+            # multi : langues
+            - match: '{|\['
+              push:
+              - meta_scope: texte.valeure
+              - match: '}|\]'
+                pop: true
             - match: '<\/multi>'
               pop: true
         # texte traduit
